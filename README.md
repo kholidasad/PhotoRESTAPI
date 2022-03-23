@@ -1,64 +1,113 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Photo REST API Documentation
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+The REST API to the photo app is described below.
 
-## About Laravel
+## Get All Photos
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Request 
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+`GET /api/photos`
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+    https://photorestapi.herokuapp.com/api/photos
+    
+### Response 
 
-## Learning Laravel
+    HTTP/1.1 200 OK
+    Status: 200 OK
+    Connection: close
+    Content-Type: application/json
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+    []
+    
+## Create Photo
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Request 
 
-## Laravel Sponsors
+`POST /api/photos`
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+    https://photorestapi.herokuapp.com/api/photos
+    
+### Response 
 
-### Premium Partners
+    HTTP/1.1 201 Created
+    Status: 201 Created
+    Connection: close
+    Content-Type: application/json
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+    {"id":1,"photo":"file","caption":"new photo","tags":"Design"}
+    
+## Get Detail Photo
 
-## Contributing
+### Request 
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+`GET /api/photos/id`
 
-## Code of Conduct
+    https://photorestapi.herokuapp.com/api/photos/1
+    
+### Response 
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+    HTTP/1.1 200 OK
+    Status: 200 OK
+    Connection: close
+    Content-Type: application/json
 
-## Security Vulnerabilities
+    {"id":1,"photo":"file","caption":"new photo","tags":"Design"}
+    
+## Update Photo
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Request 
 
-## License
+`PUT /api/photos/id`
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    https://photorestapi.herokuapp.com/api/photos/1
+    
+### Response 
+
+    HTTP/1.1 200 OK
+    Status: 200 OK
+    Connection: close
+    Content-Type: application/json
+
+    {"id":1,"photo":"file","caption":"photo caption","tags":"Tech"}
+    
+## Delete Photo
+
+### Request 
+
+`DELETE /api/photos/id`
+
+    https://photorestapi.herokuapp.com/api/photos/1
+    
+### Response 
+
+    HTTP/1.1 200 OK
+    Status: 200 OK
+    Connection: close
+
+## Like Photo
+
+### Request 
+
+`POST /api/photos/id/like`
+
+    https://photorestapi.herokuapp.com/api/photos/1/like
+    
+### Response 
+
+    HTTP/1.1 200 OK
+    Status: 200 OK
+    Connection: close
+
+## Unlike Photo
+
+### Request 
+
+`POST /api/photos/id/unlike`
+
+    https://photorestapi.herokuapp.com/api/photos/1/unlike
+    
+### Response 
+
+    HTTP/1.1 200 OK
+    Status: 200 OK
+    Connection: close
