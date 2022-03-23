@@ -2,6 +2,40 @@
 
 The REST API to the photo app is described below.
 
+## Register
+
+### Request 
+
+`POST /api/register`
+
+    https://photorestapi.herokuapp.com/api/register
+    
+### Response 
+
+    HTTP/1.1 201 Created
+    Status: 201 Created
+    Connection: close
+    Content-Type: application/json
+
+    {"id":1,"name":"John","email":"inijohn@local.com","password":"pass123"}
+
+## Login
+
+### Request 
+
+`POST /api/login`
+
+    https://photorestapi.herokuapp.com/api/login
+    
+### Response 
+
+    HTTP/1.1 200 OK
+    Status: 200 OK
+    Connection: close
+    Content-Type: application/json
+
+    {"name":"John","token":"tokenhere"}
+
 ## Get All Photos
 
 ### Request 
