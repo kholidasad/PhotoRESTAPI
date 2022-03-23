@@ -132,4 +132,13 @@ class PhotoController extends Controller
             'message' => 'Unlike Photo Success'
         ]);
     }
+
+    public function countLike($id)
+    {
+        $count = Like::where('photo_id', $id)->count();
+
+        return response()->json([
+            'count' => $count
+        ]);
+    }
 }

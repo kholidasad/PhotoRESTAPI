@@ -26,3 +26,5 @@ Route::put('/photos/{id}', [PhotoController::class, 'update'])->middleware('auth
 Route::delete('/photos/{id}', [PhotoController::class, 'delete'])->middleware('auth:sanctum');
 Route::post('/photos/{id}/like', [PhotoController::class, 'like'])->middleware('auth:sanctum');
 Route::post('/photos/{id}/unlike', [PhotoController::class, 'unlike'])->middleware('auth:sanctum');
+
+Route::get('/photos/{id}/count', [PhotoController::class, 'count']);
